@@ -1,11 +1,15 @@
+''' A script which looks up account names from account numbers and bank names or codes using the Flutterwave API. '''
+
 # Helpful resource on bank codes: https://sandbox.interswitchng.com/docbase/docs/autogatebatchgate/appendix/bank-cbn-codes/
 
 import os
-# import json
 import requests
 import dotenv
+import pathlib
 
-dotenv.load_dotenv('.prod.env')
+# You need to have a .env file in the root directory with your FLW_CLIENT_ID and FLW_CLIENT_SECRET keys
+base_dir = pathlib.Path(__file__).parent.parent
+dotenv.load_dotenv(f'{base_dir}/keys.env')
 
 BASE_URL = "https://api.flutterwave.cloud/f4bexperience"
 token_url = "https://idp.flutterwave.com/realms/flutterwave/protocol/openid-connect/token"
