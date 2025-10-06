@@ -21,3 +21,6 @@ It's simple: Work on short side projects, write on them, as well as on other pro
 
 
 We (you and I) will begin this journey with Flutterwave, one of the biggest fintech service providers offering payment infrastructure and financial APIs across Africa.
+
+I would really love connecting with new devs who might be more experienced than I am, and getting your feedbacks!
+Thank you!
