@@ -15,7 +15,6 @@ BASE_URL = "https://api.flutterwave.cloud/f4bexperience"
 token_url = "https://idp.flutterwave.com/realms/flutterwave/protocol/openid-connect/token"
 acc_lookup_url = f"{BASE_URL}/banks/account-resolve"
 
-print(os.getenv("FLW_CLIENT_SECRET"))
 
 def get_access_token():
 	headers = {
@@ -27,7 +26,7 @@ def get_access_token():
 		"grant_type": "client_credentials"
 	}
 	token_response = requests.post(token_url, headers=headers, data=data).json()
-	print(token_response)
+	# print(token_response)
 	access_token = token_response['access_token']
 
 	return access_token
@@ -63,8 +62,8 @@ def get_account_name(account_number, bank_name_or_code):
 		raise ValueError('''
 Bank name not found. Try another name or perhaps check your spelling.
 You could also try the following: 
-				   1. Try alternative names: For example, "Guarantee Trust Bank" instead of "GT Bank", or vice-versa.
-				   2. Use the bank CBN code instead.
+	1. Try alternative names: For example, "Guaranty Trust Bank" instead of "GT Bank", or vice-versa.
+	2. Use the bank CBN code instead.
 ''')
 	
 
@@ -84,10 +83,12 @@ You could also try the following:
 		"authorization": f"Bearer {access_token}"
 	}
 	, json=request_body).json()
-	if response.status == "success":
-		print("Details found!")
-		for detail in (data:=response["data"]):
-			print(detail, data[detail])
+	print(response)
+
+	if response["status"] == "success":
+		return response['data']['account_name']
+	elif response["status"] == "failed":
+		return response['error']['message']
 	
 
 	
