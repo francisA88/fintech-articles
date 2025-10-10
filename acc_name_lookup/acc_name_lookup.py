@@ -73,7 +73,6 @@ You could also try the following:
 		"account": {
 			"code": bank_code,
 			"number": account_number,
-			"currency": "naira" # Talk about including this
 		},
 		"currency": "NGN"
 	}
