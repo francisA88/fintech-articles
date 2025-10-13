@@ -11,7 +11,8 @@ import pathlib
 base_dir = pathlib.Path(__file__).parent.parent
 dotenv.load_dotenv(f'{base_dir}/keys.env')
 
-BASE_URL = "https://api.flutterwave.cloud/f4bexperience"
+# BASE_URL = "https://api.flutterwave.cloud/f4bexperience"
+BASE_URL = "https://f4bexperience.flutterwave.com"
 token_url = "https://idp.flutterwave.com/realms/flutterwave/protocol/openid-connect/token"
 acc_lookup_url = f"{BASE_URL}/banks/account-resolve"
 
